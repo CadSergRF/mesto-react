@@ -39,7 +39,6 @@ function App() {
   return (
     <div className="root">
 
-
       <Header />
 
       <Main
@@ -50,7 +49,6 @@ function App() {
       />
 
       <Footer />
-
 
       {/* Модалка редактирование профиля */}
       <PopupWithForm
@@ -84,8 +82,8 @@ function App() {
         <span className="popup__input-error link-error"></span>
       </PopupWithForm>
 
-    {/* Модалка Изменение аватара */}
-    <PopupWithForm
+      {/* Модалка Изменение аватара */}
+      <PopupWithForm
         name="editAvatar"
         title="Обновить аватар"
         btnSubmitText="Сохранить"
@@ -99,7 +97,7 @@ function App() {
           required />
         <span className="popup__input-error link-error"></span>
       </PopupWithForm>
-     
+
       {/* <!-- Попап "Подтверждение действия" --> */}
       <div className="popup" id="confirm-popup">
         <div className="popup__container">
@@ -113,32 +111,6 @@ function App() {
 
       {/* Модалка Увеличение картинки */}
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-
-      {/* <!-- Попап "Увеличение картинки"--> */}
-      {/* <div className="popup popup_big-image_bgc" id="enhance-image">
-        <div className="popup__image-container">
-          <img src="#" alt="#" className="popup__image-big" />
-          <button className="popup__close-btn" type="button" aria-label="Кнопка закрытия окна добавления контента"></button>
-          <h3 className="popup__image-title">Увеличенная картинка</h3>
-        </div>
-      </div> */}
-
-      {/* <!-- Шаблон карточки place --> */}
-      <template id="placeTemplate">
-        <li className="places__item">
-          <article className="place">
-            <img className="place__image" src="#" alt="" />
-            <button className="place__delete" type="button" aria-label="Кнопка удаления place"></button>
-            <div className="place__info">
-              <h2 className="place__title">Название</h2>
-              <div>
-                <button className="place__like" type="button" aria-label="Кнопка лайк"></button>
-                <p className="place__num-of-likes">0</p>
-              </div>
-            </div>
-          </article>
-        </li>
-      </template>
 
     </div>
   );

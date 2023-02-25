@@ -31,7 +31,6 @@ const Main = (props) => {
       });
   }, [])
 
-
   return (
     <main className="root__container">
       {/* <!-- профиль пользователя --> */}
@@ -49,7 +48,6 @@ const Main = (props) => {
           </button>
           <p className="user-profile__job">{userDescription}</p>
         </div>
-
         <button
           className="user-profile__add-place"
           type="button"
@@ -62,10 +60,10 @@ const Main = (props) => {
         <ul className="places__list">
           {
             cards.map((cardData) => (
-              <Cards 
-              cardData={cardData}
-              key={cardData._id}
-              onCardClick={props.onCardClick}
+              <Cards
+                cardData={cardData}
+                key={cardData._id}
+                onCardClick={props.onCardClick}
               />
             ))
           }
