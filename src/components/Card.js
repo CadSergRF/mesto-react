@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cards = ({ cardData, onCardClick }) => {
+const Card = ({ cardData, onCardClick }) => {
   return (
     <li className="places__item">
       <article className="place">
@@ -18,4 +18,4 @@ const Cards = ({ cardData, onCardClick }) => {
   )
 }
 
-export default Cards
+export default Card

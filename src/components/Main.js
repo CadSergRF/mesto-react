@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../utils/Api';
-import Cards from './Cards';
+import Card from './Card';
 
 const Main = (props) => {
 
@@ -60,7 +60,7 @@ const Main = (props) => {
         <ul className="places__list">
           {
             cards.map((cardData) => (
-              <Cards
+              <Card
                 cardData={cardData}
                 key={cardData._id}
                 onCardClick={props.onCardClick}
