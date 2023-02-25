@@ -95,3 +95,12 @@ export class Api {
   }
 }
 
+const api = new Api({   // экземпляр класса Api - запросы к серверу
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+  headers: {
+    authorization: '03dc3376-ddee-4eae-b74f-6570ee2c94e8',
+    'Content-Type': 'application/json'
+  }
+});
+
+export default api;

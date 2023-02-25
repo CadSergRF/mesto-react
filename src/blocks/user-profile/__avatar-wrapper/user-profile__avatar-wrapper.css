@@ -4,6 +4,8 @@
   cursor: pointer;
   border-radius: 50%;
   position: relative;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .user-profile__avatar-wrapper::before {

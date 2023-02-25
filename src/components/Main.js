@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import api from '../utils/Api';
 
 const Main = (props) => {
 
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+
+  useEffect(() => {
+    api
+    .getUserInfo()
+    .then((userData) => {
+      setUserName(userData.name);
+      setUserDescription(userData.about);
+      setUserAvatar(userData.avatar);
+      console.log(userData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [])
   
 
   return (
@@ -9,17 +27,17 @@ const Main = (props) => {
       {/* <!-- профиль пользователя --> */}
       <section className="user-profile root__user-profile">
         <div className="user-profile__avatar-wrapper" onClick={props.onEditAvatar}>
-          <img className="user-profile__photo" alt="Аватар"/>
+          <img className="user-profile__photo" alt="Аватар" src={userAvatar}/>
         </div>
         <div className="user-profile__info-wrapper">
-          <h1 className="user-profile__name">Жак-Ив Кусто</h1>
+          <h1 className="user-profile__name">{userName}</h1>
           <button
             className="user-profile__edit"
             type="button"
             aria-label="Кнопка редактирования профиля"
             onClick={props.onEditProfile}>
           </button>
-          <p className="user-profile__job"></p>
+          <p className="user-profile__job">{userDescription}</p>
         </div>
 
         <button
