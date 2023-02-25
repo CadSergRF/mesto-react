@@ -65,6 +65,7 @@ const Main = (props) => {
               <Cards 
               cardData={cardData}
               key={cardData._id}
+              onCardClick={props.onCardClick}
               />
             ))
           }

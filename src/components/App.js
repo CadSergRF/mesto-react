@@ -4,12 +4,14 @@ import Header from './Header'
 import Main from './Main'
 import { useState } from 'react';
 import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 function App() {
 
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -23,10 +25,15 @@ function App() {
     setIsEditAvatarPopupOpen(true);
   }
 
+  function handleCardClick(event) {
+    setSelectedCard(event.target);
+  }
+
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
+    setSelectedCard({});
   }
 
   return (
@@ -39,6 +46,7 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
+        onCardClick={handleCardClick}
       />
 
       <Footer />
@@ -103,14 +111,17 @@ function App() {
         </div>
       </div>
 
+      {/* Модалка Увеличение картинки */}
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+
       {/* <!-- Попап "Увеличение картинки"--> */}
-      <div className="popup popup_big-image_bgc" id="enhance-image">
+      {/* <div className="popup popup_big-image_bgc" id="enhance-image">
         <div className="popup__image-container">
           <img src="#" alt="#" className="popup__image-big" />
           <button className="popup__close-btn" type="button" aria-label="Кнопка закрытия окна добавления контента"></button>
           <h3 className="popup__image-title">Увеличенная картинка</h3>
         </div>
-      </div>
+      </div> */}
 
       {/* <!-- Шаблон карточки place --> */}
       <template id="placeTemplate">
